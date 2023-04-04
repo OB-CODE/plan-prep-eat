@@ -3,6 +3,8 @@ import Head from "next/head";
 import DarkMode from "./DarkMode";
 
 import { api } from "~/utils/api";
+import Switches from "./Switches";
+import PantryStaples from "./PantryStaples";
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -30,15 +32,20 @@ const Home: NextPage = () => {
               <div className="text-lg">
                 Let the head chef know what your preferences are:
               </div>
+              {/* Switches used for the input data for search */}
+              <Switches />
             </div>
             <div
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-black/20 dark:bg-white/10  p-4 dark:text-white hover:bg-white/20"
             >
               <h3 className="text-2xl font-bold">PREP →</h3>
               <div className="text-lg">
-                Steps to prep:
+                <div className="pb-4"> Remove any of the pantry staples that you DON'T have:</div>  
+                <PantryStaples />              
                 <div id="prep">
-
+                  <div>Do you want to know the nutrients per serve?</div>
+                  <div>Search the internet for a recipe</div>
+                  <div className="flex justify-center mt-4"><button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">SEARCH</button></div>
                 </div>
               </div>
             </div>

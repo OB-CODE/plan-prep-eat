@@ -6,6 +6,9 @@ const config = {
     extend: {},
   },
   plugins: [],
+  variants: {
+    backgroundColor: ['responsive', 'hover', 'focus', 'checked'],
+  },
 };
 
 module.exports = config;
