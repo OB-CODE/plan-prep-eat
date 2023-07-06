@@ -1,15 +1,19 @@
 import React, { useState } from "react";
+import { defaultPantry } from '../store/selectedFoodStore'
 
 const PantryStaples = () => {
 
-  const [pantry, setPantry] = useState([
-    { item: "Pepper", checked: true },
-    { item: "Salt", checked: true },
-    { item: "Olive oil", checked: true },
-    { item: "Vegetable oil", checked: true },
-    { item: "Flour", checked: true },
-    { item: "Vinegar", checked: true },
-  ]);
+  const pantry = defaultPantry((state) => state.pantry);
+  const setPantry = defaultPantry((state) => state.setPantry);
+
+  // const [pantry, setPantry] = useState([
+  //   { item: "Pepper", checked: true },
+  //   { item: "Salt", checked: true },
+  //   { item: "Olive oil", checked: true },
+  //   { item: "Vegetable oil", checked: true },
+  //   { item: "Flour", checked: true },
+  //   { item: "Vinegar", checked: true },
+  // ]);
 
   const handleCheckpantry = (event: { target: { name: string; checked: boolean; }; }) => {
     const index = pantry.findIndex((list) => list.item == event.target.name);

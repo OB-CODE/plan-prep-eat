@@ -5,9 +5,16 @@ import DarkMode from "./DarkMode";
 import { api } from "~/utils/api";
 import Switches from "./Switches";
 import PantryStaples from "./PantryStaples";
+import { defaultPantry } from '../store/selectedFoodStore'
+
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
+
+
+  const [pantry, setPantry] = defaultPantry(
+    (state) => [state.pantry, state.setPantry]
+  )
 
   return (
     <>
@@ -52,7 +59,14 @@ const Home: NextPage = () => {
           </div>
           <p className="text-2xl dark:text-white">
             Over to you... Eat Up!!!!
+
+     
           </p>
+          <div>
+                    {pantry.map((item, index) => ( <div>{item.item}</div>)
+           )}
+          </div>
+  
         </div>
       </main>
     </>
