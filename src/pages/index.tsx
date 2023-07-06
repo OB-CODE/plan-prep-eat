@@ -51,7 +51,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <p className="text-2xl dark:text-white">
-            Over to you... Eat Up!!!
+            Over to you... Eat Up!!!!
           </p>
         </div>
       </main>
