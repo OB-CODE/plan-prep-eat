@@ -7,6 +7,7 @@ import Switches from "./Switches";
 import PantryStaples from "./PantryStaples";
 import { defaultPantry } from '../store/selectedFoodStore'
 
+import { Button, buttonVariants } from '../UI/button'
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -52,7 +53,9 @@ const Home: NextPage = () => {
                 <div id="prep">
                   <div>Do you want to know the nutrients per serve?</div>
                   <div>Search the internet for a recipe</div>
-                  <div className="flex justify-center mt-4"><button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">SEARCH</button></div>
+                  <div className="flex justify-center mt-4">
+                    <Button  className={buttonVariants({ variant: "purple", size: ""})} children={'SEARCH'}/>
+                    </div>
                 </div>
               </div>
             </div>
@@ -63,7 +66,7 @@ const Home: NextPage = () => {
      
           </p>
           <div>
-                    {pantry.map((item, index) => ( <div>{item.item}</div>)
+                    {pantry.map((item, index) => ( item.checked ? <div key={index}>{item.item}</div> : null)
            )}
           </div>
   
