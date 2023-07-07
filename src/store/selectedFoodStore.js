@@ -10,4 +10,14 @@ export const defaultPantry = create((set) => ({
     { item: "Vinegar", checked: true },
   ],
   setPantry: (newPantry) => set({ pantry: newPantry }),
+
+  handleCheckPantry: (event) => {
+    const { name } = event.target;
+    set((state) => {
+      const updatedPantry = state.pantry.map((item) =>
+        item.item === name ? { ...item, checked: !item.checked } : item
+      );
+      return { pantry: updatedPantry };
+    });
+  },
 }));
