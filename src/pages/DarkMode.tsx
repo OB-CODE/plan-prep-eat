@@ -61,7 +61,7 @@ function DarkMode() {
     // document.documentElement.classList.add('dark');
 
   return (
-    <div className="fixed top-0 h-16 w-full bg-purple-300 dark:bg-purple-900 sm:h-24">
+    <div className="status top-0 h-16 w-full bg-purple-300 dark:bg-purple-900 sm:h-24">
       <ModeToggle />
     </div>
   );

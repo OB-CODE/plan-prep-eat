@@ -30,7 +30,7 @@ const Home: NextPage = () => {
       from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b  dark:text-white"
       >
         <DarkMode />
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-6 ">
           <h1 className="text-5xl font-extrabold tracking-tight dark:text-white sm:text-[5rem]">
             Plan <span className="text-[hsl(280,100%,70%)]">PREP</span> Eat
           </h1>
