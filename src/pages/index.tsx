@@ -5,7 +5,7 @@ import DarkMode from "./DarkMode";
 import { api } from "~/utils/api";
 import Switches from "./Switches";
 import PantryStaples from "./PantryStaples";
-import { defaultPantry } from "../store/selectedFoodStore";
+import { defaultPantry } from "../store/defaultPantryStore";
 
 import { Button, buttonVariants } from "../UI/button";
 
