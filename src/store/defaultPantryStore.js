@@ -1,6 +1,6 @@
 import create from "zustand";
 
-export const defaultPantry = create((set) => ({
+export const defaultPantry = create((set, get) => ({
   pantry: [
     { item: "Pepper", checked: true },
     { item: "Salt", checked: true },
@@ -31,10 +31,13 @@ export const defaultPantry = create((set) => ({
 
   handleCheckMeat: (event) => {
     set((state) => {
-    const index = state.meat.findIndex((list) => list.item == event.target.name);
-    state.meat[index].checked = event.target.checked;
-    return { meat: state.meat}
-    // setMeat([...meat]);
+      const index = state.meat.findIndex(
+        (list) => list.item == event.target.name
+      );
+      set({ selectedProtein: state.meat[index].item });
+      state.meat[index].checked = event.target.checked;
+      return { meat: state.meat };
+    
     });
   },
 
@@ -47,9 +50,12 @@ export const defaultPantry = create((set) => ({
 
   handleCheckVeg: (event) => {
     set((state) => {
-    const index = veg.findIndex((list) => list.item == event.target.name);
-    veg[index].checked = event.target.checked;
-    return { veg: state.veg}
+      const index = state.veg.findIndex(
+        (list) => list.item == event.target.name
+      );
+      set({ selectedProtein: state.veg[index].item });
+      state.veg[index].checked = event.target.checked;
+      return { veg: state.veg };
     });
   },
 
@@ -60,12 +66,18 @@ export const defaultPantry = create((set) => ({
   ],
   setVegan: (newVegan) => set({ vegan: newVegan }),
 
-  handleCheckVeg: (event) => {
+  handleCheckVegan: (event) => {
     set((state) => {
-    const index = vegan.findIndex((list) => list.item == event.target.name);
-    vegan[index].checked = event.target.checked;
-    return { vegan: state.vegan}
+      const index = state.vegan.findIndex(
+        (list) => list.item == event.target.name
+      );
+      set({ selectedProtein: state.vegan[index].item });
+      vegan[index].checked = event.target.checked;
+      return { vegan: state.vegan };
     });
   },
 
+  selectedProtein: "...",
+
+  setSelectedProtein: (newProtein) => set({ selectedProtein: newProtein }),
 }));

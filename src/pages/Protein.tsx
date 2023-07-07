@@ -34,15 +34,19 @@ const Protein = () => {
     state.handleCheckMeat,
   ]);
 
-  const [veg, setVeg] = defaultPantry((state) => [
+  const [veg, setVeg, handleCheckVeg] = defaultPantry((state) => [
     state.veg,
     state.setVeg,
+    state.handleCheckVeg,
   ]);
 
-  const [vegan, setVegan] = defaultPantry((state) => [
+  const [vegan, setVegan, handleCheckVegan] = defaultPantry((state) => [
     state.vegan,
     state.setVegan,
+    state.handleCheckVegan,
   ]);
+
+  
 
   function clearBoxes() {
     for (const item of meat) {

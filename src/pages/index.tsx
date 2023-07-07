@@ -12,9 +12,10 @@ import { Button, buttonVariants } from "../UI/button";
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
-  const [pantry, setPantry] = defaultPantry((state) => [
+  const [pantry, setPantry, selectedProtein] = defaultPantry((state) => [
     state.pantry,
     state.setPantry,
+    state.selectedProtein,
   ]);
 
   return (
@@ -47,7 +48,6 @@ const Home: NextPage = () => {
               <h3 className="text-2xl font-bold">PREP →</h3>
               <div className="text-lg">
                 <div className="pb-4">
-                  {" "}
                   Remove any of the pantry staples that you DON'T have:
                 </div>
                 <PantryStaples />
@@ -71,8 +71,7 @@ const Home: NextPage = () => {
           {/* delete prompt once working - will be used to enter into Chat GPT */}
           <div>Seach Prompt</div>
           <div className="flex">
-            {" "}
-            Provide a meal suggestion based around ... as the main ingredient.
+            Provide a meal suggestion based around {selectedProtein} as the main ingredient.
             Assume the person has the following ingredients:
             {pantry.map((item, index) =>
               item.checked ? (
@@ -83,7 +82,6 @@ const Home: NextPage = () => {
             )}
           </div>
           <div className="flex">
-            {" "}
             Assume the person does not have the following ingredients:
             {pantry.map((item, index) =>
               item.checked === false ? (
