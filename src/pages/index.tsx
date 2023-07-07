@@ -60,11 +60,9 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-          <p className="text-2xl dark:text-white">
-            Over to you... Eat Up!!!!
 
-     
-          </p>
+          {/* delete prompt once working - will be used to enter into Chat GPT */}
+          <div>Seach Prompt</div>
           <div className="flex"> Provide a meal suggestion based around ... as the main ingredient. Assume the person has the following ingredients: 
                     {pantry.map((item, index) => ( item.checked ? <div className="pl-2" key={index}>{item.item}</div> : null)
            )} 
@@ -72,6 +70,12 @@ const Home: NextPage = () => {
           <div className="flex"> Assume the person does not have the following ingredients: 
                     {pantry.map((item, index) => ( item.checked === false ? <div className="pl-2" key={index}>{item.item}</div> : null)
            )} 
+          </div>
+
+        </div>
+        <div className="flex w-9/12 h-[30vh] mb-5 flex-col gap-4 rounded-xl  bg-black/20 dark:bg-white/10 p-4 dark:text-white hover:bg-white/20">
+        <div className="text-2xl dark:text-white text-center">
+            Over to you... Eat Up!!!!
           </div>
         </div>
       </main>
