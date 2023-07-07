@@ -73,7 +73,7 @@ const Home: NextPage = () => {
           </div>
 
         </div>
-        <div className="flex w-9/12 h-[30vh] mb-5 flex-col gap-4 rounded-xl  bg-black/20 dark:bg-white/10 p-4 dark:text-white hover:bg-white/20">
+        <div  className="responseBox flex w-9/12 h-[30vh] mb-5 flex-col gap-4 rounded-xl  bg-black/20 dark:bg-white/10 p-4 dark:text-white hover:bg-white/20">
         <div className="text-2xl dark:text-white text-center">
             Over to you... Eat Up!!!!
           </div>
