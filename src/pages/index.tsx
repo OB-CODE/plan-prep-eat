@@ -65,11 +65,14 @@ const Home: NextPage = () => {
 
      
           </p>
-          <div>
-                    {pantry.map((item, index) => ( item.checked ? <div key={index}>{item.item}</div> : null)
-           )}
+          <div className="flex"> Provide a meal suggestion based around ... as the main ingredient. Assume the person has the following ingredients: 
+                    {pantry.map((item, index) => ( item.checked ? <div className="pl-2" key={index}>{item.item}</div> : null)
+           )} 
           </div>
-  
+          <div className="flex"> Assume the person does not have the following ingredients: 
+                    {pantry.map((item, index) => ( item.checked === false ? <div className="pl-2" key={index}>{item.item}</div> : null)
+           )} 
+          </div>
         </div>
       </main>
     </>
