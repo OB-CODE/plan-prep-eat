@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { defaultPantry } from "../store/defaultPantryStore";
 
 const Protein = () => {
 
@@ -9,43 +9,44 @@ const Protein = () => {
   //   { item: "MEAT", checked: false },
   // ]);
 
-  const [meat, setMeat] = useState([
-    { item: "Beef", checked: false },
-    { item: "Chicken", checked: false },
-    { item: "Pork", checked: false },
-    { item: "Fish", checked: false },
+  // const [meat, setMeat] = useState([
+  //   { item: "Beef", checked: false },
+  //   { item: "Chicken", checked: false },
+  //   { item: "Pork", checked: false },
+  //   { item: "Fish", checked: false },
+  // ]);
+
+  // const [veg, setVeg] = useState([
+  //   { item: "Eggs", checked: false },
+  //   { item: "Yoghurt", checked: false },
+  //   { item: "Milk", checked: false },
+  // ]);
+
+  // const [vegan, setVegan] = useState([
+  //   { item: "Tofu", checked: false },
+  //   { item: "Chai Seeds", checked: false },
+  //   { item: "Quinoa", checked: false },
+  // ]);
+
+  const [meat, setMeat, handleCheckMeat] = defaultPantry((state) => [
+    state.meat,
+    state.setMeat,
+    state.handleCheckMeat,
   ]);
 
-  const [veg, setVeg] = useState([
-    { item: "Eggs", checked: false },
-    { item: "Yoghurt", checked: false },
-    { item: "Milk", checked: false },
+  const [veg, setVeg, handleCheckVeg] = defaultPantry((state) => [
+    state.veg,
+    state.setVeg,
+    state.handleCheckVeg,
   ]);
 
-  const [vegan, setVegan] = useState([
-    { item: "Tofu", checked: false },
-    { item: "Chai Seeds", checked: false },
-    { item: "Quinoa", checked: false },
+  const [vegan, setVegan, handleCheckVegan] = defaultPantry((state) => [
+    state.vegan,
+    state.setVegan,
+    state.handleCheckVegan,
   ]);
 
-  const handleCheckMeat = (event: { target: { name: string; checked: boolean; }; }) => {
-    const index = meat.findIndex((list) => list.item == event.target.name);
-    meat[index].checked = event.target.checked;
-    setMeat([...meat]);
-  };
-
-  const handleCheckVeg = (event: { target: { name: string; checked: boolean; }; }) => {
-    const index = veg.findIndex((list) => list.item == event.target.name);
-    veg[index].checked = event.target.checked;
-    setVeg([...veg]);
-  };
-  const handleCheckVegan = (event: { target: { name: string; checked: boolean; }; }) => {
-    const index = vegan.findIndex((list) => list.item == event.target.name);
-    vegan[index].checked = event.target.checked;
-    setVegan([...vegan]);
-  };
-
-
+  
 
   function clearBoxes() {
     for (const item of meat) {

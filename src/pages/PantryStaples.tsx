@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { defaultPantry } from "../store/selectedFoodStore";
+import { defaultPantry } from "../store/defaultPantryStore";
 
 const PantryStaples = () => {
   const pantry = defaultPantry((state) => state.pantry);
