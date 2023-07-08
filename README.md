@@ -26,3 +26,23 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+USING Git with this project - Recurring Workflow
+Branch
+You make separate branches for each feature so that you don’t push up half incomplete code on the main branch
+when you need to go work on something else and you’re the feature is not completed. You push up the branch
+after you’re done.
+
+1. Make a branch
+git checkout -b feature_name
+*Make sure no one is working in the MAIN branch!*
+Do your work
+2. git add -A and git / commit -m 'message'
+3. git fetch
+4. git rebase
+
+AS UPSTREAM:
+- git fetch origin
+- git rebase origin/main
+- git push origin <branchName>
+

@@ -21,59 +21,28 @@ export const defaultPantry = create((set, get) => ({
     });
   },
 
-  meat: [
-    { item: "Beef", checked: false },
-    { item: "Chicken", checked: false },
-    { item: "Pork", checked: false },
-    { item: "Fish", checked: false },
+  proteins: [
+    { protein: 'meat', item: "Beef", checked: false },
+    { protein: 'meat', item: "Chicken", checked: false },
+    { protein: 'meat', item: "Pork", checked: false },
+    { protein: 'meat', item: "Fish", checked: false },
+    { protein: 'veg', item: "Eggs", checked: false },
+    { protein: 'veg', item: "Yoghurt", checked: false },
+    { protein: 'veg', item: "Milk", checked: false },
+    { protein: 'vegan', item: "Tofu", checked: false },
+    { protein: 'vegan', item: "Chai Seeds", checked: false },
+    { protein: 'vegan', item: "Quinoa", checked: false },
   ],
-  setMeat: (newMeat) => set({ meat: newMeat }),
+  setProteins: (newProtein) => set({ proteins: newProtein }),
 
-  handleCheckMeat: (event) => {
+  handleCheckProtein: (event) => {
     set((state) => {
-      const index = state.meat.findIndex(
+      const index = state.proteins.findIndex(
         (list) => list.item == event.target.name
       );
-      set({ selectedProtein: state.meat[index].item });
-      state.meat[index].checked = event.target.checked;
-      return { meat: state.meat };
-    
-    });
-  },
-
-  veg: [
-    { item: "Eggs", checked: false },
-    { item: "Yoghurt", checked: false },
-    { item: "Milk", checked: false },
-  ],
-  setVeg: (newVeg) => set({ veg: newVeg }),
-
-  handleCheckVeg: (event) => {
-    set((state) => {
-      const index = state.veg.findIndex(
-        (list) => list.item == event.target.name
-      );
-      set({ selectedProtein: state.veg[index].item });
-      state.veg[index].checked = event.target.checked;
-      return { veg: state.veg };
-    });
-  },
-
-  vegan: [
-    { item: "Tofu", checked: false },
-    { item: "Chai Seeds", checked: false },
-    { item: "Quinoa", checked: false },
-  ],
-  setVegan: (newVegan) => set({ vegan: newVegan }),
-
-  handleCheckVegan: (event) => {
-    set((state) => {
-      const index = state.vegan.findIndex(
-        (list) => list.item == event.target.name
-      );
-      set({ selectedProtein: state.vegan[index].item });
-      state.vegan[index].checked = event.target.checked;
-      return { vegan: state.vegan };
+      set({ selectedProtein: state.proteins[index].item });
+      state.proteins[index].checked = event.target.checked;
+      return { proteins: state.proteins };
     });
   },
 
