@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import DarkMode from "./DarkMode";
+import { useState } from 'react';
 
 import { api } from "~/utils/api";
 import Switches from "./Switches";
@@ -17,6 +18,34 @@ const Home: NextPage = () => {
     state.setPantry,
     state.selectedProtein,
   ]);
+
+  const [result, setResult] = useState();
+
+  async function onSubmit(event) {
+    event.preventDefault();
+    try {
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // second selectedProtein is from store line 16.
+        body: JSON.stringify({ selectedProtein: selectedProtein }),
+      });
+
+      const data = await response.json();
+      if (response.status !== 200) {
+        throw data.error || new Error(`Request failed with status ${response.status}`);
+      }
+
+      setResult(data.result);
+      // setAnimalInput("");
+    } catch(error) {
+      // Consider implementing your own error handling logic here
+      console.error(error);
+      alert(error.message);
+    }
+  }
 
   return (
     <>
@@ -61,6 +90,7 @@ const Home: NextPage = () => {
                         size: "",
                       })}
                       children={"SEARCH"}
+                      onClick={onSubmit}
                     />
                   </div>
                 </div>
@@ -95,6 +125,8 @@ const Home: NextPage = () => {
         <div className="responseBox mb-5 flex h-[30vh] w-9/12 flex-col gap-4 rounded-xl  bg-black/20 p-4 dark:bg-white/10 dark:text-white">
           <div className="text-center text-2xl dark:text-white">
             Over to you... Eat Up!!!!
+
+            {result}
           </div>
         </div>
       </main>
