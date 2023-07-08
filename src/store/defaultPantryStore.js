@@ -72,7 +72,7 @@ export const defaultPantry = create((set, get) => ({
         (list) => list.item == event.target.name
       );
       set({ selectedProtein: state.vegan[index].item });
-      vegan[index].checked = event.target.checked;
+      state.vegan[index].checked = event.target.checked;
       return { vegan: state.vegan };
     });
   },
