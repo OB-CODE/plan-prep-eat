@@ -46,11 +46,11 @@ const SearchForm = () => {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-extrabold tracking-tight">SEARCH FORM</h1>
+    <div className="flex flex-col	items-center">
+      <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-        <div className="flex max-w-xs flex-col gap-4 rounded-xl  bg-black/20 p-4 dark:bg-white/10 dark:text-white">
+      <div className="flex w-full">
+        <div className="mx-auto flex max-w-xs flex-col gap-4 rounded-xl bg-neutral-100 p-4 shadow-shadow dark:bg-white/10 dark:text-white">
           <h3 className="text-2xl font-bold">Plan →</h3>
           <div className="text-lg">
             Let the head chef know what your preferences are:
@@ -58,7 +58,8 @@ const SearchForm = () => {
           {/* Switches used for the input data for search */}
           <Switches />
         </div>
-        <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-black/20 p-4  dark:bg-white/10 dark:text-white">
+
+        <div className="mx-auto flex max-w-xs flex-col gap-4 rounded-xl bg-neutral-100 p-4 shadow-shadow dark:bg-white/10 dark:text-white">
           <h3 className="text-2xl font-bold">PREP →</h3>
           <div className="text-lg">
             <div className="pb-4">

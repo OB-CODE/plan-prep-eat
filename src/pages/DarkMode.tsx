@@ -10,7 +10,9 @@ import { useRouter } from 'next/router';
 // },
 //  [router.pathname]);
 
-function ModeToggle() {
+function DarkMode() {
+      // // Set the initial state of the app to start in dark mode
+    // document.documentElement.classList.add('dark');
   function disableTransitionsTemporarily() {
     document.documentElement.classList.add('[&_*]:!transition-none')
     window.setTimeout(() => {
@@ -47,7 +49,6 @@ function ModeToggle() {
     aria-label="Toggle dark mode"
         onClick={toggleMode}
         className={buttonVariants({
-          className: "relative left-2 top-2 sm:left-5 sm:top-5",
           variant: "purple",
           size: "lg",
         })}
@@ -56,15 +57,6 @@ function ModeToggle() {
   )
 }
 
-function DarkMode() {
-    // // Set the initial state of the app to start in dark mode
-    // document.documentElement.classList.add('dark');
 
-  return (
-    <div className="status top-0 h-16 w-full bg-purple-300 dark:bg-purple-900 sm:h-24">
-      <ModeToggle />
-    </div>
-  );
-}
 
 export default DarkMode;

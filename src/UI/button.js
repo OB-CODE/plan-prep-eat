@@ -36,9 +36,9 @@ const Button = React.forwardRef(
   ({ className, children, href, variant, size, ...props }, ref) => {
     return (
       <button
-        className={concatenateClassnames(
+        className={`mx-3 ${concatenateClassnames(
           buttonVariants({ variant, size, className })
-        )}
+        )}`}
         ref={ref}
         {...props}
       >
