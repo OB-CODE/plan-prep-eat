@@ -43,6 +43,7 @@ Do your work
 
 AS UPSTREAM:
 - git fetch origin
-- git rebase origin/main
+- git rebase origin/main 
+- npm install (if new package added)
 - git push origin <branchName>
 

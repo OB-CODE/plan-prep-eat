@@ -5,7 +5,7 @@ import { cva } from "class-variance-authority";
 import { concatenateClassnames } from "./utilities";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300 ease-in-out focus:ring-offset-2 focus:ring-slate-400 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none",
+  "mx-3 inline-flex items-center justify-center rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300 ease-in-out focus:ring-offset-2 focus:ring-slate-400 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none",
   {
     variants: {
       variant: {
@@ -36,7 +36,7 @@ const Button = React.forwardRef(
   ({ className, children, href, variant, size, ...props }, ref) => {
     return (
       <button
-        className={`mx-3 ${concatenateClassnames(
+        className={`${concatenateClassnames(
           buttonVariants({ variant, size, className })
         )}`}
         ref={ref}
