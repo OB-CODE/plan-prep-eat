@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Router>
-        <ul className="status flex h-16 w-full flex-row items-center	  justify-between gap-10 bg-purple-300 dark:bg-purple-900 sm:h-24">
+        <ul className="status flex h-16 w-full flex-row items-center justify-between gap-10 bg-purple-300 dark:bg-purple-900 sm:h-24">
           <li>
             <Link
               className="mx-10 hover:text-purple-700 hover:decoration-solid dark:text-white dark:hover:text-purple-300"

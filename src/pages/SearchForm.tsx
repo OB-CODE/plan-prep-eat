@@ -6,6 +6,7 @@ import { defaultPantry } from "../store/defaultPantryStore";
 
 import { Button, buttonVariants } from "../UI/button";
 import Recipe from "./Recipe";
+import RecipeLoading from "./RecipeLoading";
 
 const SearchForm = () => {
   const [pantry, setPantry, selectedProtein] = defaultPantry((state) => [
@@ -46,7 +47,8 @@ const SearchForm = () => {
   }
 
   return (
-    <div className="flex flex-col	items-center">
+    <div className="flex flex-col	items-center h-[calc(100vh-16rem)]">
+      
       <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1>
 
       <div className="flex w-full">
@@ -107,7 +109,7 @@ const SearchForm = () => {
         )}
       </div>
 
-      {result && <Recipe results={result} />}
+      {result ? <Recipe results={result}/> : <RecipeLoading/>}
     </div>
   );
 };
