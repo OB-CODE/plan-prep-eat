@@ -12,8 +12,8 @@ const Home: NextPage = () => {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return (
-    <Router>
-      <div className="h-screen">
+    <div>
+      <Router>
         <ul className="status flex h-16 w-full flex-row items-center	  justify-between gap-10 bg-purple-300 dark:bg-purple-900 sm:h-24">
           <li>
             <Link
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className="// for DARK MODE flex flex-col items-center from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b  dark:text-white">
+        <main className="// for DARK MODE flex h-full flex-col items-center from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b  dark:text-white">
           <div className="container flex flex-col items-center justify-center gap-12 px-4 py-6 ">
             <h1 className="text-5xl font-extrabold tracking-tight dark:text-white sm:text-[5rem]">
               Plan <span className="text-[hsl(280,100%,70%)]">PREP</span> Eat
@@ -54,8 +54,8 @@ const Home: NextPage = () => {
             <Route path="/" element={<LandingPage />} />
           </Routes>
         </main>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 };
 
