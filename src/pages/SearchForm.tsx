@@ -9,10 +9,12 @@ import Recipe from "./Recipe";
 import RecipeLoading from "./RecipeLoading";
 
 const SearchForm = () => {
-  const [pantry, setPantry, selectedProtein] = defaultPantry((state) => [
+  const [pantry, setPantry, selectedProtein, selectedDietary, pantryStaples] = defaultPantry((state) => [
     state.pantry,
     state.setPantry,
     state.selectedProtein,
+    state.selectedDietary,
+    state.pantryStaples,
   ]);
 
   const [result, setResult] = useState();
@@ -26,7 +28,7 @@ const SearchForm = () => {
           "Content-Type": "application/json",
         },
         // second selectedProtein is from store line 16.
-        body: JSON.stringify({ selectedProtein: selectedProtein }),
+        body: JSON.stringify({ selectedProtein: selectedProtein, dietary: selectedDietary, pantryStaples: pantryStaples}),
       });
 
       const data = await response.json();
