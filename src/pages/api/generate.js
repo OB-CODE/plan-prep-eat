@@ -16,19 +16,13 @@ export default async function (req, res) {
   }
 
   const selectedProtein = req.body.selectedProtein || '';
-  // if (animal.trim().length === 0) {
-  //   res.status(400).json({
-  //     error: {
-  //       message: "Please enter a valid food",
-  //     }
-  //   });
-  //   return;
-  // }
+  const dietary = req.body.dietary || '';
+  const pantryStaples = req.body.pantryStaples || '';
 
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(selectedProtein),
+      prompt: generatePrompt(selectedProtein, dietary, pantryStaples),
       temperature: 0.6,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
@@ -48,6 +42,6 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(food) {
-  return `Give me a related food: ${food}}`;
+function generatePrompt(protein, dietary, pantryEssentials) {
+  return `Provide a meal suggestion based around ${protein} as the main ingredient. The dish is for a ${dietary}. Assume the person has the following ingredients: ${pantryEssentials}`;
 }

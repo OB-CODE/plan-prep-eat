@@ -22,7 +22,7 @@ const Protein = () => {
         <div className="title "></div>
           <div className="list-container flex flex-col gap-1 justify-center ">
             {proteins.map((item, index) => (
-              item.protein === 'meat' && <div key={index}>
+              item.dietary === 'omnivore' && <div key={index}>
                <input
                 name={item.item}
                 value={item.checked}
@@ -42,7 +42,7 @@ const Protein = () => {
         <div className="title "></div>
           <div className="list-container flex flex-col gap-1 justify-center ">
             {proteins.map((item, index) => (
-              item.protein === 'veg' && <div key={index}>
+              item.dietary === 'vegetarian' && <div key={index}>
                <input
                 name={item.item}
                 value={item.checked}
@@ -62,7 +62,7 @@ const Protein = () => {
         <div className="title "></div>
           <div className="list-container flex flex-col gap-1 justify-center ">
             {proteins.map((item, index) => (
-              item.protein === 'vegan' && <div key={index}>
+              item.dietary === 'vegan' && <div key={index}>
                <input
                 name={item.item}
                 value={item.checked}
