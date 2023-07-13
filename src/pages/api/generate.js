@@ -24,8 +24,12 @@ export default async function (req, res) {
       model: "text-davinci-003",
       prompt: generatePrompt(selectedProtein, dietary, pantryStaples),
       temperature: 0.6,
+      max_tokens: 500,
     });
-    res.status(200).json({ result: completion.data.choices[0].text });
+
+    console.log(completion.data)
+    res.status(200).json({ result: completion.data.choices[0].text.trim()});
+
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
@@ -43,5 +47,5 @@ export default async function (req, res) {
 }
 
 function generatePrompt(protein, dietary, pantryEssentials) {
-  return `Provide a meal suggestion based around ${protein} as the main ingredient. The dish is for a ${dietary}. Assume the person has the following ingredients: ${pantryEssentials}`;
+  return `Provide a recipe with ${protein} as the main ingredient for a ${dietary}. Optional ingredients ${pantryEssentials}. Output as JSON data: {"name": "", "ingredients": [], "method": []}`;
 }

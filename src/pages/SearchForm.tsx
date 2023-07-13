@@ -9,13 +9,14 @@ import Recipe from "./Recipe";
 import RecipeLoading from "./RecipeLoading";
 
 const SearchForm = () => {
-  const [pantry, setPantry, selectedProtein, selectedDietary, pantryStaples] = defaultPantry((state) => [
-    state.pantry,
-    state.setPantry,
-    state.selectedProtein,
-    state.selectedDietary,
-    state.pantryStaples,
-  ]);
+  const [pantry, setPantry, selectedProtein, selectedDietary, pantryStaples] =
+    defaultPantry((state) => [
+      state.pantry,
+      state.setPantry,
+      state.selectedProtein,
+      state.selectedDietary,
+      state.pantryStaples,
+    ]);
 
   const [result, setResult] = useState();
 
@@ -28,7 +29,11 @@ const SearchForm = () => {
           "Content-Type": "application/json",
         },
         // second selectedProtein is from store line 16.
-        body: JSON.stringify({ selectedProtein: selectedProtein, dietary: selectedDietary, pantryStaples: pantryStaples}),
+        body: JSON.stringify({
+          selectedProtein: selectedProtein,
+          dietary: selectedDietary,
+          pantryStaples: pantryStaples,
+        }),
       });
 
       const data = await response.json();
@@ -38,8 +43,10 @@ const SearchForm = () => {
           new Error(`Request failed with status ${response.status}`)
         );
       }
-
-      setResult(data.result);
+      console.log(data.result);
+      const recipeObj = JSON.parse(data.result);
+      console.log(recipeObj);
+      setResult(recipeObj);
       // setAnimalInput("");
     } catch (error) {
       // Consider implementing your own error handling logic here
@@ -47,10 +54,10 @@ const SearchForm = () => {
       alert(error.message);
     }
   }
+  console.log(result)
 
   return (
-    <div className="flex flex-col	items-center h-[calc(100vh-16rem)]">
-      
+    <div className="flex flex-col items-center ">
       <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1>
 
       <div className="flex w-full">
@@ -88,8 +95,8 @@ const SearchForm = () => {
         </div>
       </div>
 
-      <div>Seach Prompt</div>
-      <div className="flex">
+      {/* <div>Seach Prompt</div> */}
+      {/* <div className="flex">
         Provide a meal suggestion based around {selectedProtein} as the main
         ingredient. Assume the person has the following ingredients:
         {pantry.map((item, index) =>
@@ -99,8 +106,8 @@ const SearchForm = () => {
             </div>
           ) : null
         )}
-      </div>
-      <div className="flex">
+      </div> */}
+      {/* <div className="flex">
         Assume the person does not have the following ingredients:
         {pantry.map((item, index) =>
           item.checked === false ? (
@@ -109,9 +116,9 @@ const SearchForm = () => {
             </div>
           ) : null
         )}
-      </div>
+      </div> */}
 
-      {result ? <Recipe results={result}/> : <RecipeLoading/>}
+      {result ? <Recipe results={result} /> : <RecipeLoading />}
     </div>
   );
 };
