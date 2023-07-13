@@ -48,6 +48,8 @@ const SearchForm = () => {
     }
   }
 
+  console.log(result)
+
   return (
     <div className="flex flex-col	items-center h-[calc(100vh-16rem)]">
       
@@ -88,8 +90,8 @@ const SearchForm = () => {
         </div>
       </div>
 
-      <div>Seach Prompt</div>
-      <div className="flex">
+      {/* <div>Seach Prompt</div> */}
+      {/* <div className="flex">
         Provide a meal suggestion based around {selectedProtein} as the main
         ingredient. Assume the person has the following ingredients:
         {pantry.map((item, index) =>
@@ -99,8 +101,8 @@ const SearchForm = () => {
             </div>
           ) : null
         )}
-      </div>
-      <div className="flex">
+      </div> */}
+      {/* <div className="flex">
         Assume the person does not have the following ingredients:
         {pantry.map((item, index) =>
           item.checked === false ? (
@@ -109,7 +111,7 @@ const SearchForm = () => {
             </div>
           ) : null
         )}
-      </div>
+      </div> */}
 
       {result ? <Recipe results={result}/> : <RecipeLoading/>}
     </div>
