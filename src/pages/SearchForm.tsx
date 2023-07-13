@@ -57,7 +57,7 @@ const SearchForm = () => {
   console.log(result)
 
   return (
-    <div className="flex h-[calc(100vh-16rem)]	flex-col items-center">
+    <div className="flex flex-col items-center ">
       <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1>
 
       <div className="flex w-full">
