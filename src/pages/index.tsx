@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import LandingPage from "./LandingPage";
 import SearchForm from "./SearchForm";
+import MacroPage from "./MacroPage";
 
 const Home: NextPage = () => {
   // TODO: not using tprc for now, uncomment when need.
@@ -20,41 +21,41 @@ const Home: NextPage = () => {
       </Head>
 
       <Router>
-        <ul className="status absolute flex h-16 w-full flex-row items-center justify-between gap-10 bg-purple-300 dark:bg-purple-900 sm:h-24">
-          <li>
-            <Link
-              className="mx-10 hover:text-purple-700 hover:decoration-solid dark:text-white dark:hover:text-purple-300"
+        <div className="flex justify-evenly bg-purple-300 dark:bg-purple-900">
+        <div className="flex flex-col sm:flex-row status h-20 w-full items-center justify-evenly  sm:h-24">
+        <Link
+              className=" hover:text-purple-700 hover:decoration-solid dark:text-white dark:hover:text-purple-300"
               to="/"
             >
               HOME
             </Link>
-
             <Link
-              className="mx-10 hover:text-purple-700 hover:decoration-solid dark:text-white dark:hover:text-purple-300"
+              className=" hover:text-purple-700 hover:decoration-solid dark:text-white dark:hover:text-purple-300"
               to="/search"
             >
               SEARCH
+            </Link>           
+             <Link
+              className=" hover:text-purple-700 hover:decoration-solid dark:text-white dark:hover:text-purple-300"
+              to="/macros"
+            >
+              MACROS
             </Link>
-          </li>
-          <li>
-            <DarkMode />
-          </li>
-        </ul>
+        </div>
+        <div className="flex items-center">        <DarkMode />
+</div>
+        </div>
+        
 
-        <div className="flex min-h-screen flex-col items-center from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b pt-[12vh] dark:text-white">
-          <div className="container flex flex-col items-center justify-center gap-12 px-4 py-6 ">
-            <h1 className="text-5xl font-extrabold tracking-tight dark:text-white sm:text-[5rem]">
-              Plan <span className="text-[hsl(280,100%,70%)]">PREP</span> Eat
-            </h1>
-          </div>
 
           <Routes>
             <Route path="/search" element={<SearchForm />} />
-
+            <Route path="/macros" element={<MacroPage />} />
             <Route path="/" element={<LandingPage />} />
           </Routes>
-        </div>
       </Router>
+
+
     </div>
   );
 };

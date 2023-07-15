@@ -70,10 +70,12 @@ const SearchForm = () => {
   console.log(result)
 
   return (
+    <div className="flex min-h-screen flex-col items-center from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b pt-[2vh] dark:text-white">
+    <div className="container flex flex-col items-center justify-center px-4 ">
     <div className="flex flex-col items-center ">
       {/* <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1> */}
 
-      <div className="flex gap-4">
+      <div className="flex flex-col sm:flex-row gap-4">
         {/* Plan box on the left hand side */}
         <div className="mx-auto flex max-w-xs flex-col rounded-xl bg-neutral-100 p-4 shadow-shadow dark:bg-white/10 dark:text-white">
           <h3 className="text-2xl font-bold">Plan →</h3>
@@ -137,6 +139,9 @@ const SearchForm = () => {
 
       {result ? <Recipe results={result} /> : <RecipeLoading />}
     </div>
+    </div>
+    </div>
+
   );
 };
 
