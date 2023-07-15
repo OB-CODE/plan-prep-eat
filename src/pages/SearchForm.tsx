@@ -7,6 +7,10 @@ import { defaultPantry } from "../store/defaultPantryStore";
 import { Button, buttonVariants } from "../UI/button";
 import Recipe from "./Recipe";
 import RecipeLoading from "./RecipeLoading";
+import LoadingBox from "./LoadingBox";
+
+import {useStore } from "../store/apiStore"
+
 
 const SearchForm = () => {
   const [pantry, setPantry, selectedProtein, selectedDietary, pantryStaples] =
@@ -20,8 +24,16 @@ const SearchForm = () => {
 
   const [result, setResult] = useState();
 
+    // Used to change to store var that controls the loading bar
+    const [currentlyLoading, setCurrentlyLoading] = useStore((state) => [
+      state.currentlyLoading,
+      state.setCurrentlyLoading,
+    ]);
+  
+
   async function onSubmit(event) {
     event.preventDefault();
+    setCurrentlyLoading(true)
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -48,6 +60,7 @@ const SearchForm = () => {
       console.log(recipeObj);
       setResult(recipeObj);
       // setAnimalInput("");
+      setCurrentlyLoading(false)
     } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -58,10 +71,11 @@ const SearchForm = () => {
 
   return (
     <div className="flex flex-col items-center ">
-      <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1>
+      {/* <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1> */}
 
-      <div className="flex w-full">
-        <div className="mx-auto flex max-w-xs flex-col gap-4 rounded-xl bg-neutral-100 p-4 shadow-shadow dark:bg-white/10 dark:text-white">
+      <div className="flex gap-4">
+        {/* Plan box on the left hand side */}
+        <div className="mx-auto flex max-w-xs flex-col rounded-xl bg-neutral-100 p-4 shadow-shadow dark:bg-white/10 dark:text-white">
           <h3 className="text-2xl font-bold">Plan →</h3>
           <div className="text-lg">
             Let the head chef know what your preferences are:
@@ -69,7 +83,7 @@ const SearchForm = () => {
           {/* Switches used for the input data for search */}
           <Switches />
         </div>
-
+        {/* Prep box on the left hand side */}
         <div className="mx-auto flex max-w-xs flex-col gap-4 rounded-xl bg-neutral-100 p-4 shadow-shadow dark:bg-white/10 dark:text-white">
           <h3 className="text-2xl font-bold">PREP →</h3>
           <div className="text-lg">
@@ -94,6 +108,9 @@ const SearchForm = () => {
           </div>
         </div>
       </div>
+
+      {currentlyLoading ? <LoadingBox /> : null}
+      
 
       {/* <div>Seach Prompt</div> */}
       {/* <div className="flex">
