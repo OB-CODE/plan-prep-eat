@@ -70,10 +70,13 @@ const SearchForm = () => {
   console.log(result)
 
   return (
-    <div className="flex min-h-screen flex-col items-center from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b pt-[2vh] dark:text-white">
+    <div className="flex flex-col items-center from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b dark:text-white">
     <div className="container flex flex-col items-center justify-center px-4 ">
     <div className="flex flex-col items-center ">
       {/* <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1> */}
+      <h1 className="text-5xl pb-5 font-extrabold tracking-tight dark:text-white sm:text-[5rem]">
+              Plan <span className="text-[hsl(280,100%,70%)]">PREP</span> Eat
+            </h1>
 
       <div className="flex flex-col sm:flex-row gap-4">
         {/* Plan box on the left hand side */}
