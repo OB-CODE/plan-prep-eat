@@ -4,23 +4,25 @@
 
 /* @import 'fonts.css';s */
 
-main,
+main ,
 html,
-body {
-  height: 100vh;
-}
+  body {
+    min-height: 100%;
+  }
 
-body > div:first-child,
+body > div:first-child {
+  min-height: 100%;
+}
 div#__next {
-  height: 100vh;
+  min-height: 100vh;
 }
 
-div#__next > div {
-  height: 100vh;
+/* div#__next > div {
+  height: 100%;
   overflow-x: hidden;
   padding: 0;
   margin: 0;
-}
+} */
 
 body,
 html {

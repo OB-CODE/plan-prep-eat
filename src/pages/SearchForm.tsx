@@ -70,8 +70,7 @@ const SearchForm = () => {
   console.log(result)
 
   return (
-    <div className="flex flex-col items-center from-[#342944] to-[#0d0e12] text-black dark:bg-gradient-to-b dark:text-white">
-    <div className="container flex flex-col items-center justify-center px-4 ">
+    <div className="h-full">
     <div className="flex flex-col items-center ">
       {/* <h1 className="text-3xl font-extrabold tracking-tight">SEARCH</h1> */}
       <h1 className="text-5xl pb-5 font-extrabold tracking-tight dark:text-white sm:text-[5rem]">
@@ -97,7 +96,7 @@ const SearchForm = () => {
             </div>
             <PantryStaples />
             <div id="prep">
-              <div>Do you want to know the nutrients per serve?</div>
+              {/* <div>Do you want to know the nutrients per serve?</div> */}
               <div>Search the internet for a recipe</div>
               <div className="mt-4 flex justify-center">
                 <Button
@@ -143,7 +142,7 @@ const SearchForm = () => {
       {result ? <Recipe results={result} /> : <RecipeLoading />}
     </div>
     </div>
-    </div>
+
 
   );
 };

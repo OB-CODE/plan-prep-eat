@@ -14,7 +14,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   if (isServer) return null;
 
   return (
-    <div suppressHydrationWarning>
+    <div suppressHydrationWarning id="app" className="min-h-screen">
       {typeof window === "undefined" ? null : <Component {...pageProps} />}
     </div>
   );
