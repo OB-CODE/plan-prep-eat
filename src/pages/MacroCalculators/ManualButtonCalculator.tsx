@@ -3,9 +3,9 @@ import { Button, buttonVariants } from '~/UI/button';
 
 const ManualButtonCalculator = () => {
         // For counting calories:
-        const [protein, setProtein] = useState('');
-        const [carbohydrates, setCarbohydrates] = useState('');
-        const [fat, setFat] = useState('');
+        const [protein, setProtein] = useState(0);
+        const [carbohydrates, setCarbohydrates] = useState(0);
+        const [fat, setFat] = useState(0);
         const [calories, setCalories] = useState(0);
       
         const calculateCalories = () => {
@@ -34,10 +34,9 @@ const ManualButtonCalculator = () => {
     <div>
 
     <div className='text-xl font-bold	'>Calorie Calculator</div>
-    <h1>Calculated by react in the front-end. Click the button to calculate. </h1>
+    <h1>Calculated by JS in the front-end. Click the button to calculate. </h1>
 
 <div className='MacroContainer py-3 flex flex-col gap-1 w-1/4 mx-auto'>
-<div>
     {inputs.map((input) => (
       <div key={input.id} className='flex justify-between'>
         <label htmlFor={input.id}>{input.label}</label>
@@ -51,7 +50,6 @@ const ManualButtonCalculator = () => {
       </div>
     ))}
     </div>
-</div>
 
     <Button onClick={calculateCalories} className={buttonVariants({
           variant: "purple",
