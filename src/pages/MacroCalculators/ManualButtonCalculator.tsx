@@ -33,7 +33,7 @@ const ManualButtonCalculator = () => {
   return (
     <div>
 
-    <div className='text-xl font-bold	'>Calorie Calculator</div>
+    <div className='text-xl font-bold	'>Calorie Calculator #1</div>
     <h1>Calculated by JS in the front-end. Click the button to calculate. </h1>
 
 <div className='MacroContainer py-3 flex flex-col gap-1 w-1/4 mx-auto'>

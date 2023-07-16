@@ -34,7 +34,7 @@ const AutomaticCalculator = () => {
   
     return (
       <div>
-        <div className='text-xl font-bold'>Calorie Calculator</div>
+        <div className='text-xl font-bold'>Calorie Calculator #2</div>
         <h1>Calculated automatically by React State</h1>
   
         <div className='MacroContainer py-3 flex flex-col gap-1 w-2/3 mx-auto'>

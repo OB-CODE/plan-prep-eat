@@ -39,7 +39,7 @@ body,
 
       <Router>
         <div className="mb-4 flex justify-evenly bg-purple-300 dark:bg-purple-900">
-          <div className="h-[10vh] flex flex-col sm:flex-row status w-full items-center justify-evenly">
+          <div className="h-[13vh] sm:h-[9vh] pl-10 sm:pl-0 justify-center sm:justify-evenly sm:items-center flex flex-col sm:flex-row status w-full">
           {navigationLinks.map((link) => (
                 <Link
                   key={link.path}
