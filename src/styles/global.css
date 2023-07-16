@@ -4,17 +4,19 @@
 
 /* @import 'fonts.css';s */
 
-#__next {
-  @apply flex flex-col min-h-full;
-}
-
 main,
 html,
-body,
-body>div:first-child,
-div#__next,
-div#__next>div {
-  height: 100svh;
+body {
+  height: 100vh;
+}
+
+body > div:first-child,
+div#__next {
+  height: 100vh;
+}
+
+div#__next > div {
+  height: 100vh;
   overflow-x: hidden;
   padding: 0;
   margin: 0;

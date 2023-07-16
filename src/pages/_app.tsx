@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { api } from "~/utils/api";
 
-import "~/styles/globals.css";
+import "~/styles/global.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const [isServer, setIsServer] = useState(true);
