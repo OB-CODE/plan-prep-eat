@@ -10,7 +10,9 @@ on:
     branches: [ "main" ]
 
 jobs:
+
   build:
+    environment: "dev"
 
     runs-on: ubuntu-latest
     # Under the hood, Github is using Docker and the line above references to this. 
