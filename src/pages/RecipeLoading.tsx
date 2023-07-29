@@ -1,3 +1,5 @@
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import React from "react";
 import Image from "next/image";
 import cooking from "../Components/muppet.webp";

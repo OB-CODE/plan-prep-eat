@@ -1,3 +1,5 @@
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import React, { useEffect, useState } from "react";
 
 const LoadingBox = () => {

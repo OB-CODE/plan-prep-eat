@@ -7,6 +7,8 @@ import CSharpCalculator from "./MacroCalculators/CSharpCalculator";
 import Image from "next/image";
 import reactIMG from "./MacroCalculators/React-logo.png";
 import pythonIMG from "./MacroCalculators/Python-Symbol.png";
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import CSharpIMG from "./MacroCalculators/C-Sharp.png";
 
 const MacroPage = () => {

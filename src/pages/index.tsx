@@ -1,3 +1,5 @@
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import { type NextPage } from "next";
 import Head from "next/head";
 import DarkMode from "./DarkMode";

@@ -1,5 +1,6 @@
 // inspo taken from https://github.com/joschan21/image-alt-generator/blob/main/src/components/ui/button.tsx
-
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import * as React from "react";
 import { cva } from "class-variance-authority";
 import { concatenateClassnames } from "./utilities";

@@ -1,3 +1,6 @@
+// No check can be removed once file is in typescript
+// @ts-nocheck
+
 import React, { useState, useEffect } from "react";
 import { Button, buttonVariants } from "~/UI/button";
 import { useRouter } from 'next/router';

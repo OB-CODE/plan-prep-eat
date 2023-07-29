@@ -1,5 +1,6 @@
 import { type AppType } from "next/app";
 import { useEffect, useState } from "react";
+import 'dotenv/config'
 
 import { api } from "~/utils/api";
 

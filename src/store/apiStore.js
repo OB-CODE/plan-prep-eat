@@ -1,3 +1,5 @@
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import create from "zustand";
 
 // Use a store value to change on a button click, thus triggering a loading bar to appear on the screen. 

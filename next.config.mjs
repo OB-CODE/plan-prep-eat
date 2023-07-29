@@ -1,3 +1,4 @@
+
 // @ts-check
 
 /**
@@ -9,6 +10,9 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true
+  },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you

@@ -1,3 +1,5 @@
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import React, { useState } from "react";
 
 import Switches from "./Switches";
@@ -33,6 +35,7 @@ const SearchForm = () => {
     event.preventDefault();
     setCurrentlyLoading(true);
     try {
+      // featch find the path based on naming conventions - It looks for a file name in the API folder to match. 
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {

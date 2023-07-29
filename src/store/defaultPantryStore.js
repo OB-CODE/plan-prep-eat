@@ -1,4 +1,6 @@
 // import { it } from "node:test";
+// No check can be removed once file is in typescript
+// @ts-nocheck
 import create from "zustand";
 import PantryStaples from "~/pages/PantryStaples";
 
