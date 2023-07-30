@@ -28,6 +28,6 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs"
-  ],
+, "src/pages/__tests__/Switches.js"  ],
   "exclude": ["node_modules"]
 }
