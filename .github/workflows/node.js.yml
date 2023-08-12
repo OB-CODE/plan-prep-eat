@@ -29,6 +29,7 @@ jobs:
     - name: ssh deploy on aws ec2
       uses: easingthemes/ssh-deploy@v2.1.4
       env:
+        DATABASE_URL: ${{ vars.DATABASE_URL }}
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
@@ -36,7 +37,6 @@ jobs:
         SOURCE: "build/"
         TARGET: ${{ secrets.DEPLOY_TARGET }}
         
-    DATABASE_URL: ${{ vars.DATABASE_URL }}
     
    # test removed until TypeScript fixed
    # - run: npm test
