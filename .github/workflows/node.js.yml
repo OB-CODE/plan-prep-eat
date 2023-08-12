@@ -40,10 +40,14 @@ jobs:
         echo "SSH connection successful"
         echo "$PRIVATE_KEY" > private_key
         chmod 600 private_key
-        
+
+        # Start the SSH agent and add the private key
+        eval $(ssh-agent -s)
+        ssh-add private_key
+            
         # SSH into the EC2 instance and set up the app directory
 
-        ssh -v -o StrictHostKeyChecking=no -i PRIVATE_KEY ${USER_NAME}@${HOSTNAME} "
+        ssh -v -o StrictHostKeyChecking=no ${USER_NAME}@${HOSTNAME} "
         bash -c \'
         # Create a directory for your app
         mkdir -p /planApp
