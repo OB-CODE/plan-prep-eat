@@ -8,7 +8,7 @@ name: Node.js CI for next js app.
 on:
   push:
     branches: [ "main" ]
-
+ 
 jobs:
 
   build:
