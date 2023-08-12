@@ -34,9 +34,9 @@ jobs:
         USER_NAME: ${{ secrets.USER_NAME }}
 
       run: |
-        echo "$PRIVATE_KEY" > private_key
-        chmod 600 private_key
-
-        # Replace 'deploy-command' with the actual command to deploy the application
-        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} 'deploy-command'
-
+          echo "$PRIVATE_KEY" > private_key
+          chmod 600 private_key
+      
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} 
+ # 'deploy-command'
+  
