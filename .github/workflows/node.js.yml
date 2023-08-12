@@ -44,16 +44,14 @@ jobs:
         # SSH into the EC2 instance and set up the app directory
 
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "
-        bash -c \'    
+        bash -c \'
         # Create a directory for your app
         mkdir -p /planApp
         # Move the built files to the app directory
         mv /app/* /planApp
-
         # Navigate to the app directory
         cd /planApp
-    
         # Install dependencies and start the app (assuming Node.js)
         npm install
         pm2 start planApp
-        ENDSSH
+        \'"
