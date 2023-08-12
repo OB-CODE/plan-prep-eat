@@ -36,6 +36,7 @@ jobs:
         SOURCE: "build/"
         TARGET: ${{ secrets.DEPLOY_TARGET }}
         
-    # DATABASE_URL: ${{ vars.DATABASE_URL }}
+    DATABASE_URL: ${{ vars.DATABASE_URL }}
+    
    # test removed until TypeScript fixed
    # - run: npm test
