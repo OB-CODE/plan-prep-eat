@@ -48,7 +48,7 @@ jobs:
         # Create a directory for your app
         mkdir -p /planApp
         # Move the built files to the app directory
-        mv /app/* /planApp
+        mv /app /planApp
         # Navigate to the app directory
         cd /planApp
         # Install dependencies and start the app (assuming Node.js)
