@@ -37,7 +37,5 @@ jobs:
         SOURCE: "build/"
         TARGET: ${{ secrets.DEPLOY_TARGET }}
         
-
-    
    # test removed until TypeScript fixed
    # - run: npm test
