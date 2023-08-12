@@ -2,8 +2,6 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: Node.js CI
-# CI is a series of Jobs
-# Each Job, has a series of steps.
 
 on:
   push:
@@ -12,44 +10,33 @@ on:
 jobs:
 
   build:
-    environment: "dev"
-
     runs-on: ubuntu-latest
-    # Under the hood, Github is using Docker and the line above references to this. 
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js 18.16
-      uses: actions/setup-node@v3
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v2
       with:
-        node-version: 18.16
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+        node-version: 18
 
-    - uses: actions/checkout@v2 
-    - name: Build & Deploy
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build application
+      run: npm run build --if-present
+
+    - name: Deploy to server
       env:
-          PRIVATE_KEY: ${{ secrets.DEPLOY_KEY  }}
-          HOSTNAME: ${{secrets.DEPLOY_HOST}}
-          USER_NAME: ${secrets.USER_NAME}
-      
-      run: |
-        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${DEPLOY_TARGET} '
+        PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+        HOSTNAME: ${{ secrets.DEPLOY_HOST }}
+        USER_NAME: ${{ secrets.USER_NAME }}
 
-    
-    #- name: ssh deploy on aws ec2
-   #   uses: appleboy/ssh-action@v1.0.0
-   #   with:
-      #  DATABASE_URL: ${{ vars.DATABASE_URL }}
-    #    key: ${{ secrets.DEPLOY_KEY }}
-    #    host: ${{ secrets.DEPLOY_HOST }}
-    #    username: ${{ secrets.DEPLOY_USER }}
-    #    port: ${{ secrets.DEPLOY_PORT }}
-     #   SOURCE: "build/"
-    #    TARGET: ${{ secrets.DEPLOY_TARGET }}
-         
-   # test removed until TypeScript fixed
-   # - run: npm test
- 
+      run: |
+        echo "$PRIVATE_KEY" > private_key
+        chmod 600 private_key
+
+        # Replace 'deploy-command' with the actual command to deploy the application
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} 'deploy-command'
+
