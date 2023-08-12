@@ -27,8 +27,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - name: ssh deploy on aws ec2
-      uses: easingthemes/ssh-deploy@v2.1.4
-      env:
+      uses: appleboy/ssh-action@v1.0.0
+      with:
         DATABASE_URL: ${{ vars.DATABASE_URL }}
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
