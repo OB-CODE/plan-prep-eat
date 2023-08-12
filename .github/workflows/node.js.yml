@@ -27,22 +27,26 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
 
-
-    - name: Set up SSH key
+    - uses: actions/checkout@v2 
+    - name: Build & Deploy
+      env:
+          PRIVATE_KEY: ${{ secrets.DEPLOY_KEY  }}
+          HOSTNAME: ${{secrets.DEPLOY_HOST}}
+          USER_NAME: ${secrets.USER_NAME}
+      
       run: |
-        echo "$DEPLOY_KEY" > deploy_key
-        chmod 600 deploy_key
-        eval $(ssh-agent -s)
-        ssh-add deploy_key
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+
     
-    - name: ssh deploy on aws ec2
-      uses: appleboy/ssh-action@v1.0.0
-      with:
+    #- name: ssh deploy on aws ec2
+   #   uses: appleboy/ssh-action@v1.0.0
+   #   with:
       #  DATABASE_URL: ${{ vars.DATABASE_URL }}
-        key: ${{ secrets.DEPLOY_KEY }}
-        host: ${{ secrets.DEPLOY_HOST }}
-        username: ${{ secrets.DEPLOY_USER }}
-        port: ${{ secrets.DEPLOY_PORT }}
+    #    key: ${{ secrets.DEPLOY_KEY }}
+    #    host: ${{ secrets.DEPLOY_HOST }}
+    #    username: ${{ secrets.DEPLOY_USER }}
+    #    port: ${{ secrets.DEPLOY_PORT }}
      #   SOURCE: "build/"
     #    TARGET: ${{ secrets.DEPLOY_TARGET }}
          
