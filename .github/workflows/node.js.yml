@@ -22,7 +22,7 @@ jobs:
       env:
         PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         HOSTNAME: ${{ secrets.DEPLOY_HOST }}
-        USER_NAME: ${{ secrets.USER_NAME }}
+        USER_NAME: ${{ secrets.DEPLOY_USER }}
 
       run: |
           echo "$PRIVATE_KEY" > private_key
