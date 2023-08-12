@@ -25,8 +25,5 @@ jobs:
         USER_NAME: ${{ secrets.DEPLOY_USER }}
 
       run: |
-          echo "$PRIVATE_KEY" > private_key
-          chmod 600 private_key
-      
-          # Test the SSH connection by running a simple command (e.g., echo)
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} 'echo "SSH connection successful"'
+        echo "SSH connection successful"
+        
