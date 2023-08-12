@@ -28,10 +28,12 @@ jobs:
     - run: npm run build --if-present
 
 
-    - name: Set private key permissions
-    - run: |
+    - name: Set up SSH key
+      run: |
         echo "$DEPLOY_KEY" > deploy_key
         chmod 600 deploy_key
+        eval $(ssh-agent -s)
+        ssh-add deploy_key
     
     - name: ssh deploy on aws ec2
       uses: appleboy/ssh-action@v1.0.0
