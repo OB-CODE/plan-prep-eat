@@ -29,13 +29,13 @@ jobs:
     - name: ssh deploy on aws ec2
       uses: appleboy/ssh-action@v1.0.0
       with:
-        DATABASE_URL: ${{ vars.DATABASE_URL }}
-        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-        REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-        REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-        REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-        SOURCE: "build/"
-        TARGET: ${{ secrets.DEPLOY_TARGET }}
+      #  DATABASE_URL: ${{ vars.DATABASE_URL }}
+        key: ${{ secrets.DEPLOY_KEY }}
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_USER }}
+        port: ${{ secrets.DEPLOY_PORT }}
+     #   SOURCE: "build/"
+    #    TARGET: ${{ secrets.DEPLOY_TARGET }}
          
    # test removed until TypeScript fixed
    # - run: npm test
