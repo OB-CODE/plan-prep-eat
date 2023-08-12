@@ -30,7 +30,7 @@ jobs:
       run: npm run build --if-present
 
 
-    - name: Create SSH Connection
+    - name: Create SSH Connection and SSH into Instance and Set Up
       env:
         PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         HOSTNAME: ${{ secrets.DEPLOY_HOST }}
@@ -41,4 +41,19 @@ jobs:
         echo "$PRIVATE_KEY" > private_key
         chmod 600 private_key
         
-        
+        # SSH into the EC2 instance and set up the app directory
+
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "
+        bash -c \'    
+        # Create a directory for your app
+        mkdir -p /planApp
+        # Move the built files to the app directory
+        mv /app/* /planApp
+
+        # Navigate to the app directory
+        cd /planApp
+    
+        # Install dependencies and start the app (assuming Node.js)
+        npm install
+        pm2 start your-app-name
+        ENDSSH
