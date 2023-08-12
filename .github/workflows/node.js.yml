@@ -3,7 +3,7 @@
 
 
   
-name: Test SSH Connection to EC2
+name: Node.js CI for next js app.
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
       run: npm run build --if-present
 
 
-    - name: Test SSH Connection
+    - name: Create SSH Connection
       env:
         PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         HOSTNAME: ${{ secrets.DEPLOY_HOST }}
@@ -38,4 +38,7 @@ jobs:
 
       run: |
         echo "SSH connection successful"
+        echo "$PRIVATE_KEY" > private_key
+        chmod 600 private_key
+        
         
