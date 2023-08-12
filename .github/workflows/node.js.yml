@@ -36,6 +36,6 @@ jobs:
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
         SOURCE: "build/"
         TARGET: ${{ secrets.DEPLOY_TARGET }}
-        
+         
    # test removed until TypeScript fixed
    # - run: npm test
