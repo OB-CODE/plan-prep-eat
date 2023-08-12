@@ -55,5 +55,5 @@ jobs:
     
         # Install dependencies and start the app (assuming Node.js)
         npm install
-        pm2 start your-app-name
+        pm2 start planApp
         ENDSSH
