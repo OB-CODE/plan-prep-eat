@@ -33,6 +33,7 @@ jobs:
     - name: Create SSH Connection and SSH into Instance and Set Up
       env:
         PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+        SOURCE: "./"
         HOSTNAME: ${{ secrets.DEPLOY_HOST }}
         USER_NAME: ${{ secrets.DEPLOY_USER }}
 
