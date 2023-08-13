@@ -3,7 +3,7 @@
 
 
   
-name: Node.js CI for next js app.
+name: Node.js CI for next js app. 
 
 on:
   push:
