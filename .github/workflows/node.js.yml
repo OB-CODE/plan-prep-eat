@@ -43,20 +43,4 @@ jobs:
         chmod 600 private_key
 
         # Start the SSH agent and add the private key
-        eval $(ssh-agent -s)
-        ssh-add private_key
-            
-        # SSH into the EC2 instance and set up the app directory
 
-        ssh -v -o StrictHostKeyChecking=no ${USER_NAME}@${HOSTNAME} "
-        bash -c \'
-        # Create a directory for your app
-        mkdir -p /planApp
-        # Move the built files to the app directory
-        mv /app /planApp
-        # Navigate to the app directory
-        cd /planApp
-        # Install dependencies and start the app (assuming Node.js)
-        npm install
-        pm2 start planApp
-        \'"
