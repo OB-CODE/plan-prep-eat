@@ -37,10 +37,6 @@ jobs:
         HOSTNAME: ${{ secrets.DEPLOY_HOST }}
         USER_NAME: ${{ secrets.DEPLOY_USER }}
 
-      run: |
-        echo "SSH connection successful"
-        echo "$PRIVATE_KEY" > private_key
-        chmod 600 private_key
-
-        # Start the SSH agent and add the private key
-
+    - run: mkdir ~/.ssh
+    - run: 'echo "$PRIVATE_KEY" >> ~/.ssh/github-action'
+    - run: chmod 400 ~/.ssh/github-action
