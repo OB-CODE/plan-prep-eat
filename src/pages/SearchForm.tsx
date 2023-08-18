@@ -1,5 +1,4 @@
 // No check can be removed once file is in typescript
-// @ts-nocheck
 import React, { useState } from "react";
 
 import Switches from "./Switches";
@@ -13,15 +12,17 @@ import LoadingBox from "./LoadingBox";
 
 import { useStore } from "../store/apiStore";
 
-const SearchForm = () => {
-  const [pantry, setPantry, selectedProtein, selectedDietary, pantryStaples] =
-    defaultPantry((state) => [
-      state.pantry,
-      state.setPantry,
-      state.selectedProtein,
-      state.selectedDietary,
-      state.pantryStaples,
-    ]);
+const SearchForm = (): JSX.Element => {
+
+  // const [pantry, setPantry, selectedProtein, selectedDietary, pantryStaples] =
+  //   defaultPantry((state) => [
+  //     state.pantry,
+  //     state.setPantry,
+  //     state.selectedProtein,
+  //     state.selectedDietary,
+  //     state.pantryStaples,
+  //   ]);
+
 
   const [result, setResult] = useState();
 

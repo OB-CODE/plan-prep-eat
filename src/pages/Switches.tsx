@@ -1,10 +1,9 @@
 // No check can be removed once file is in typescript
-// @ts-nocheck
 import React from 'react'
 import Protein from './Protein';
 
 
-function Switches() {
+function Switches(): JSX.Element {
 
   return (
     <div>
