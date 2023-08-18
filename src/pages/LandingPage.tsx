@@ -19,15 +19,16 @@ const LandingPage = () => {
 <div>      Testing: Jest, scripts ran through CI.
 </div>
 <div></div>
-<div>      Starting Architeture plan:
+<div>      Starting Architeture plan - 22nd Aug 2023:
 </div>
       <Image 
                     src={arcIMG}
                     width={900}
                     height={900}
                     alt="Flow chart"/></div>
-                    
+    <div>Guide for CI/CD: https://reflectoring.io/tutorial-cicd-github-actions-pm2-nodejs-aws-ec2/</div>      
     </div>
+
   );
 };
 
