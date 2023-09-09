@@ -6,6 +6,7 @@ const PythonCalculator = () => {
   const [carbohydrates, setCarbohydrates] = useState(0);
   const [fat, setFat] = useState(0);
   const [calories, setCalories] = useState(0);
+  const [error, setError] = useState('');
 
   const sendDataToDjango = async () => {
     const dataToSend = { protein: protein, carbohydrates: carbohydrates, fat: fat }; // Data you want to send
@@ -23,10 +24,12 @@ const PythonCalculator = () => {
         throw new Error("Network response was not ok");
       }
  
-      const responseData = await response.json(); // Processed data from Django
+      // Converts the JSON to JS object
+      const responseData = await response.json(); 
       // Handle the response data from Django as needed
       setCalories(responseData['message']['output'])
     } catch (error) {
+      setError('Failed to get data')
       console.error("Error:", error);
     }
   };
@@ -51,7 +54,7 @@ const PythonCalculator = () => {
 
   return (
     <div>
-      <div className="text-xl font-bold	">Calorie Calculator #2</div>
+      <div className="text-xl font-bold	">Calorie Calculator #3</div>
       <h1>
         Calculated by Python in the back-end. Click the button to calculate.
       </h1>
@@ -89,6 +92,7 @@ const PythonCalculator = () => {
           disabled
         />
       </div>
+      <p>{error}</p>
     </div>
   );
 };
