@@ -13,15 +13,13 @@ const PythonLambdaCalc = () => {
 
   const sendDataToLambdaPython = async () => {
     const dataToSend = {
-      body: {
         protein: protein,
         carbohydrates: carbohydrates,
         fat: fat 
-      }
     };
 
     try {
-      const response = await fetch(" https://qyvunjmvtb.execute-api.ap-southeast-2.amazonaws.com/default/calculateInPython", {
+      const response = await fetch("https://qyvunjmvtb.execute-api.ap-southeast-2.amazonaws.com/default/calculateInPython", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,7 +73,7 @@ const PythonLambdaCalc = () => {
               type="number"
               value={input.value}
               style={inputStyle}
-              onChange={(e) => input.setter(e.target.value)}
+              onChange={(e) => input.setter(parseInt(e.target.value))}
             />
           </div>
         ))}
@@ -99,8 +97,6 @@ const PythonLambdaCalc = () => {
           disabled
         />
       </div>
-      <div className="bg-white w-10 h-5">test {calories}</div>
-      <p>{error}</p>
     </div>
   );
 };
