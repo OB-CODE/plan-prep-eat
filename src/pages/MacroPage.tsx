@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ManualButtonCalculator from "./MacroCalculators/ManualButtonCalculator";
 import AutomaticCalculator from "./MacroCalculators/AutomaticCalculator";
 import PythonCalculator from "./MacroCalculators/PythonCalculator";
-import CSharpCalculator from "./MacroCalculators/CSharpCalculator";
+import PhytonLambda from "./MacroCalculators/PythonLambdaCalculator";
 
 import Image from "next/image";
 import reactIMG from "./MacroCalculators/React-logo.png";
@@ -54,13 +54,13 @@ const MacroPage = () => {
         <div className="mx-auto flex w-10/12 flex-col justify-center border border-black dark:border-white sm:flex-row">
           <div className="overflow-hidden">
             <Image
-              src={CSharpIMG}
+              src={pythonIMG}
               width={300}
               height={300}
               alt="react spinning"
             />
           </div>
-          <CSharpCalculator />
+          <PhytonLambda />
         </div>
       </div>
     </div>
